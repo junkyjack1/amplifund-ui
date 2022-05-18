@@ -3,3 +3,7 @@ export const pages = {
     outro: 'outro',
     review: 'review'
 };
+
+export const actions = {
+
+};

@@ -1,7 +1,10 @@
-.description {
+.nav-buttons {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100px;
     padding: 5px;
+}
+
+.nav-buttons .floating-div .button {
+    margin: 5px;
 }
