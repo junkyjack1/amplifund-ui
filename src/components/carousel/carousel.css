@@ -1,0 +1,13 @@
+.carousel {
+    padding: 10px;
+}
+
+.carousel .image-container {
+    text-align: center;
+}
+
+.carousel img {
+    width: auto;
+    height: auto;
+    max-height: 300px;
+}
