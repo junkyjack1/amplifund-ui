@@ -5,5 +5,12 @@ export const pages = {
 };
 
 export const actions = {
-
+    setPage: 'setPage',
+    setPreviousPersona: 'setPreviousPersona',
+    setNextPersona: 'setNextPersona',
+    setPreviousCar: 'setPreviousCar',
+    setNextCar: 'setNextCar',
+    getDescriptionStart: 'getDescriptionStart',
+    getDescriptionSuccess: 'getDescriptionSuccess',
+    getDescriptionError: 'getDescriptionError'
 };

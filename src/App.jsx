@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import './app.css';
+import React, { useContext } from 'react';
+import { Review } from './pages/review/Review';
+import { Intro } from './pages/intro/Intro';
+import { Outro } from './pages/outro/Outro';
+import { store } from './store.js';
+import { pages } from './constants';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const { state: { activePage} } = useContext(store);
+    return (
+        <div id='app'>
+            {activePage == pages.intro && <Intro /> }
+            {activePage == pages.outro && <Outro /> }
+            {activePage == pages.review && <Review /> }
+        </div>
+    );
 }
 
 export default App;

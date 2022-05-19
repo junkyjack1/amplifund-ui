@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from '../button/Button';
+
 import './carousel.css';
-import { Button } from '/src/components/button/Button';
 
 export const Carousel = ({ cssClasses, activeItem, left, right }) => {
     return (
@@ -21,7 +22,6 @@ export const Carousel = ({ cssClasses, activeItem, left, right }) => {
 Carousel.propTypes = {
     cssClasses: PropTypes.string,
     activeItem: PropTypes.shape({
-        id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         path: PropTypes.string.isRequired,
     }),

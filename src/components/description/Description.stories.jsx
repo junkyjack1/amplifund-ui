@@ -21,3 +21,9 @@ export const WithText = Template.bind({});
 WithText.args = {
     text: "This is where text goes!"
 };
+
+export const IsLoading = Template.bind({});
+
+IsLoading.args = {
+    isLoading: true
+};

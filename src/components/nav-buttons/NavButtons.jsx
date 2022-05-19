@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from '../button/Button';
+
 import './nav-buttons.css';
-import { Button } from '/src/components/button/Button';
 
 const getClassByAction = (action) => action ? '' : 'pure-button-disabled';
 

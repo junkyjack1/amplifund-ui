@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './page.css';
 
 export const Page = ({children, cssClasses}) => {
