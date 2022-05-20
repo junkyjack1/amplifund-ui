@@ -12,7 +12,7 @@ export const Outro = ({ }) => {
         <Page cssClasses='outro'>
             <h1>Outro Page</h1>
             <NavButtons
-                back={() => dispatch({ type: actions.setPage, payload: pages.review })}
+                back={() => dispatch({ type: actions.setActivePage, payload: pages.review })}
             />
         </Page>
     );

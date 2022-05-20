@@ -7,13 +7,20 @@ import { actions, pages } from '../../constants';
 import './intro.css';
 
 export const Intro = ({ }) => {
-    const { dispatch } = useContext(store);
+    const {state: {isLoadingPersonas, isLoadingCars, introPageError}, dispatch } = useContext(store);
 
     return (
         <Page cssClasses='intro'>
             <h1>Intro Page</h1>
+            <p>
+                Hey Guys! On the next screen you'll be presented with a small application
+                that allows you select a Persona and a Car, and see what they have to say about that car.
+                Fun fact: it's mobile friendly!
+            </p>
+            {(isLoadingPersonas || isLoadingCars) && <p><b>Loading...</b></p>}
+            {introPageError && <p>ERROR: {JSON.stringify(introPageError)}</p>}
             <NavButtons
-                next={() => dispatch({ type: actions.setPage, payload: pages.review})}
+                next={() => dispatch({ type: actions.setActivePage, payload: pages.review})}
             />
         </Page>
     );

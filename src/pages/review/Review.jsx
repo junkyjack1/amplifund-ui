@@ -1,23 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Page } from '../../components/page/Page';
 import { Carousel } from '../../components/carousel/Carousel';
 import { Description } from '../../components/description/Description';
 import { NavButtons } from '../../components/nav-buttons/NavButtons';
 import { actions, pages } from '../../constants';
 import { store } from '../../store';
+import { fetchDescription } from '../../api';
 
 import './review.css';
 
 export const Review = ({ }) => {
     const {
         state: {
-            activePersona,
             activeCar,
             activeDescription,
-            isLoading,
+            activePersona,
+            isLoadingDescription,
         },
         dispatch
     } = useContext(store);
+
+    useEffect(() => {
+        if(activeCar && activePersona)
+            fetchDescription(dispatch, activeCar.id, activePersona.id);
+    }, [activeCar, activePersona]);
 
     return (
         <Page cssClasses='review'>
@@ -37,12 +43,13 @@ export const Review = ({ }) => {
                 right={() => dispatch({ type: actions.setNextCar })}
             />
             <Description
+                text={activeDescription}
                 activeDescription={activeDescription}
-                isLoading={isLoading}
+                isLoading={isLoadingDescription}
             />
             <NavButtons
-                back={() => dispatch({ type: actions.setPage, payload: pages.intro })}
-                next={() => dispatch({ type: actions.setPage, payload: pages.outro })}
+                back={() => dispatch({ type: actions.setActivePage, payload: pages.intro })}
+                next={() => dispatch({ type: actions.setActivePage, payload: pages.outro })}
             />
         </Page>
     );

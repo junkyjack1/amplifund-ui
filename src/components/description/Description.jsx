@@ -3,17 +3,13 @@ import PropTypes from 'prop-types';
 
 import './description.css';
 
-const getContent = (text, isLoading) => {
-    return isLoading ?
-        <span>LOADING...</span> :
-        <span className='text'>{ text ? text : 'No description loaded.' }</span>;
-}
-
-export const Description = ({ text, isLoading }) => {
+export const Description = ({ text, isLoading, error }) => {
     return (
         <div className='description'>
             <div className='floating-div'>
-                {getContent(text, isLoading)}
+               {isLoading && <span>LOADING...</span>}
+               {error && <span>"ERROR!!!!: " + {JSON.stringify(error)}</span>}
+               {(!isLoading && !error) && <span>Description: {text}</span>}
             </div>
         </div>
     );
@@ -21,10 +17,14 @@ export const Description = ({ text, isLoading }) => {
 
 Description.propTypes = {
     text: PropTypes.string,
-    isLoading: PropTypes.bool
+    isLoading: PropTypes.bool,
+    hasError: PropTypes.bool,
+    error: PropTypes.object
 };
 
 Description.defaultProps = {
     text: null,
-    isLoading: false
+    isLoading: false,
+    hasError: false,
+    error: null,
 };
