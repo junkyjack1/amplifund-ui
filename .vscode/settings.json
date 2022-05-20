@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/a0e71093-0783-4de6-978c-db5ed9cb79ae/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/tashchiamplifyui",
+    "appService.deploySubpath": "."
+}
